@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
     return (
       <>
-          <h1 className = "bg-dark text-white pb-1">E-Commerce <Drop/></h1>
+          <h1 className = "bg-dark text-white pb-1">E-Commerce  { localStorage.getItem('user_name') && <Drop/> }</h1>
       </>
     );
   }

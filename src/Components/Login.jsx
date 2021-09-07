@@ -42,9 +42,11 @@ class Login extends Component {
             }
         }
         ).then(function(res){
+            debugger
             alert(res.data.message)
             if(res.data.is_authenticated){
                 that.setState({ sessionUser: res.data.user });
+                localStorage.setItem('user_name',JSON.stringify(res.data.user.email))
                 that.props.history.push('/home')
             }
         }).catch(function(err){
