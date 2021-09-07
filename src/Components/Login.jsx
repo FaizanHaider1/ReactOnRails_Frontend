@@ -42,7 +42,6 @@ class Login extends Component {
             }
         }
         ).then(function(res){
-            debugger
             alert(res.data.message)
             if(res.data.is_authenticated){
                 that.setState({ sessionUser: res.data.user });
