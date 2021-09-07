@@ -9,7 +9,7 @@ class Menu extends Component {
         super(props);
         this.state = { products: [] }
     }
-    async componentWillMount() {
+    async componentDidMount() {
         // await axios.get('http://localhost:5000/products')
         await axios.get('https://react-on-rails-backend.herokuapp.com/products')
             .then(res => {
