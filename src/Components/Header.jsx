@@ -14,7 +14,10 @@ class Header extends Component {
   render() {
     return (
       <>
-          <h1 className = "bg-dark text-white pb-1">E-Commerce  { localStorage.getItem('user_name') ? <Drop/> : <Button onClick = {(e) => this.handleClick(e)}  color="outline-warning" style={{"display": "flex","flex-direction": "row-reverse","float": "right", "margin-top": "6px", "margin-right":"5px"}} >Get Register/Login</Button> }</h1>
+        <h1 className = "bg-dark text-white pb-1" style={{"paddingLeft":"168px"}}>E-Commerce
+        <span className = "col-6">
+          { localStorage.getItem('user_name') ? <Drop/> : <Button onClick = {(e) => this.handleClick(e)}  color="outline-warning" style={{"display": "flex","flex-direction": "row-reverse","float": "right", "margin-top": "6px", "margin-right":"5px"}} >Get Register/Login</Button>}
+        </span></h1>
       </>
     );
   }
