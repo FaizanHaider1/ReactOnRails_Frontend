@@ -15,7 +15,7 @@ class SignUp extends Component {
                 
                 <Card className ="px-5 py-5 mx-auto my-auto">
                     <CardTitle className="h3">Get Register</CardTitle>
-                    <Form onSubmit={(e) => this.handleSubmit(e)}>
+                    <Form onSubmit={(e) => this.handleSubmit(e, this)}>
                         <FormGroup className="mb-2">
                             <Label style={{display: "flex"}}>Email</Label>
                             <Input type="email" name="email" id="exampleEmail" placeholder="example@example.com" required/>
@@ -34,13 +34,14 @@ class SignUp extends Component {
             </>
         );
     }
-    handleSubmit = (e) => {
+    handleSubmit = (e, that) => {
         e.preventDefault()
         if( $("#Password").val() === $("#re-password").val() ){
             var email = e.target.email.value
             var password = e.target.password.value
             axios.request({
                 method: 'GET',
+                // url: `http://localhost:5000/users/sign_up`,
                 url: `https://react-on-rails-backend.herokuapp.com/users/sign_up`,
                 params: {
                     email: email,
@@ -49,6 +50,7 @@ class SignUp extends Component {
             }
             ).then(function(res){
                 alert(res.data.message)
+                that.props.history.push('/login')
             })
             .catch(function(err){
                 alert("Email already taken")

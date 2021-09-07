@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Drop from '../Components/Dropdown'
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +8,9 @@ class Header extends Component {
 
   render() {
     return (
-        <h1 className = "bg-dark text-white pb-1">E-Commerce</h1>
+      <>
+          <h1 className = "bg-dark text-white pb-1">E-Commerce <Drop/></h1>
+      </>
     );
   }
 }

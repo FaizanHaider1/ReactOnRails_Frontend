@@ -10,6 +10,7 @@ class Menu extends Component {
         this.state = { products: [] }
     }
     async componentWillMount() {
+        // await axios.get('http://localhost:5000/products')
         await axios.get('https://react-on-rails-backend.herokuapp.com/products')
             .then(res => {
             this.setState({ products: JSON.parse(res.data.products) });
