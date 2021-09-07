@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import './App.css';
 import Menu from './Components/Menu'
 import Login from './Components/Login'
@@ -9,17 +9,21 @@ import './loader.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <Router>
         <div className="App">
-          <Header/>
+          <Header />
           <Switch>
-            <Route exact path='/home' component={Menu}></Route>
+            {
+              localStorage.getItem('user_name')
+              &&
+              <Route exact path='/home' component={Menu}></Route>
+            }
             <Route exact path='/login' component={Login}></Route>
             <Route exact path='/sign_up' component={SignUp}></Route>
           </Switch>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     );
