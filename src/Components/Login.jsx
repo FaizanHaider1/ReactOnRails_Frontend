@@ -34,7 +34,7 @@ class Login extends Component {
         var password = e.target.password.value
         axios.request({
             method: 'POST',
-            url: `http://localhost:5000/users/sign_in`,
+            url: `https://react-on-rails-backend.herokuapp.com/users/sign_in`,
             params: {
                 email: email,
                 password: password
