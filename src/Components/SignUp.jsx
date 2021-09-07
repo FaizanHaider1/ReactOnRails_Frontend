@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, Button, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Card, CardTitle, Button, Form, FormGroup, Input, Label, CardLink } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import $ from "jquery";
@@ -30,6 +30,7 @@ class SignUp extends Component {
                         </FormGroup>
                         <Button type="submit" color = "primary" className = "mt-2">Submit</Button>
                     </Form>
+                    <CardLink href="/login" className="mt-2">Login</CardLink>
                 </Card>
             </>
         );
@@ -54,6 +55,7 @@ class SignUp extends Component {
             })
             .catch(function(err){
                 alert("Email already taken")
+                that.props.history.push('/login')
             });
         }else{
             alert("Password not match in both fields")
