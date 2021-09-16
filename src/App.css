@@ -39,3 +39,13 @@
     transform: rotate(360deg);
   }
 }
+
+.LinkToText{
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-width-height{
+  width: 300px;
+  height: 220px;
+}

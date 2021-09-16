@@ -42,8 +42,8 @@ class SignUp extends Component {
             var password = e.target.password.value
             axios.request({
                 method: 'GET',
-                // url: `http://localhost:5000/users/sign_up`,
-                url: `https://react-on-rails-backend.herokuapp.com/users/sign_up`,
+                url: `http://localhost:5000/users/sign_up`,
+                // url: `https://react-on-rails-backend.herokuapp.com/users/sign_up`,
                 params: {
                     email: email,
                     password: password

@@ -34,8 +34,8 @@ class Login extends Component {
         var password = e.target.password.value
         axios.request({
             method: 'POST',
-            // url: `http://localhost:5000/users/sign_in`,
-            url: `https://react-on-rails-backend.herokuapp.com/users/sign_in`,
+            url: `http://localhost:5000/users/sign_in`,
+            // url: `https://react-on-rails-backend.herokuapp.com/users/sign_in`,
             params: {
                 email: email,
                 password: password
@@ -46,7 +46,7 @@ class Login extends Component {
             if(res.data.is_authenticated){
                 that.setState({ sessionUser: res.data.user });
                 localStorage.setItem('user_name',JSON.stringify(res.data.user.email))
-                that.props.history.push('/home')
+                that.props.history.push('/products')
             }
         }).catch(function(err){
             alert(err.message)

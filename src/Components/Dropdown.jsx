@@ -12,8 +12,8 @@ const Example = (props) => {
     e.preventDefault()
     axios.request({
         method: 'DELETE',
-        // url: `http://localhost:5000/users/sign_out`,
-        url: `https://react-on-rails-backend.herokuapp.com/users/sign_out`,
+        url: `http://localhost:5000/users/sign_out`,
+        // url: `https://react-on-rails-backend.herokuapp.com/users/sign_out`,
     }).then(function(res){
         localStorage.removeItem('user_name')
         history.push('/login')

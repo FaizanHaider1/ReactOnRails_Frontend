@@ -4,14 +4,14 @@ import Product from './Product'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'reactstrap';
 
-class Menu extends Component {
+class Products extends Component {
     constructor(props) {
         super(props);
         this.state = { products: [] }
     }
     async componentDidMount() {
-        // await axios.get('http://localhost:5000/products')
-        await axios.get('https://react-on-rails-backend.herokuapp.com/products')
+        await axios.get('http://localhost:5000/products')
+        // await axios.get('https://react-on-rails-backend.herokuapp.com/products')
             .then(res => {
             this.setState({ products: JSON.parse(res.data.products) });
         })
@@ -25,11 +25,11 @@ class Menu extends Component {
             });
         
         return ( 
-            <Row className="container-fluid">
+            <Row className="container-fluid m-auto">
                 {itemsInStore}
             </Row>
         );
     }
 }
  
-export default Menu;
+export default Products;

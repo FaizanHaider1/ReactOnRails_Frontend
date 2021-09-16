@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { UncontrolledTooltip,  Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, CardHeader, CardFooter } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ViewItem from '../Components/ItemDetails'
 class Product extends Component{
     render(){
         return(
@@ -14,7 +15,7 @@ class Product extends Component{
                     <CardText>Available qty: {this.props.product.qty}</CardText>
                 </CardBody>
                 <CardFooter>
-                    <Button id={`view_${this.props.product.name}`} color="outline-danger" className="px-2 mx-2" onClick = {(e) => this.clickCartButton(this.props.product.id, this.props.product.name)}>View {this.props.product.name}</Button>
+                    <ViewItem productId={this.props.product.id} productName={this.props.product.name} buttonLabel={`View `+this.props.product.name} classname='px-2 mx-2' productPrice={this.props.product.price} productQty={this.props.product.qty} productImage={this.props.product.image}/>
                     <UncontrolledTooltip placement="bottom" target={`view_${this.props.product.name}`}>View {this.props.product.name} </UncontrolledTooltip>
                     
                     <Button id={`add_to_cart_${this.props.product.id}`} color="outline-success" className="px-2 mx-2" onClick = {(e) => this.clickCartButton(this.props.product.id, this.props.product.name)}><i class="fas fa-cart-plus"></i></Button>
@@ -26,6 +27,10 @@ class Product extends Component{
     clickCartButton = (itemId, itemName) => {
         alert(`${itemName} is added in cart..!`)
     };
+    // clickViewButton = (that ,itemId, itemName) => {
+    //     debugger
+    //     alert(`This is ${itemName}..!`)
+    // };
 }
 
 export default Product;
