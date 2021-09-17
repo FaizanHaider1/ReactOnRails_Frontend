@@ -15,7 +15,7 @@ class Header extends Component {
   render() {
     return (
       <>
-        <h1 className = "bg-dark text-white pb-1" style={{ paddingLeft: localStorage.getItem('user_name') ? '36px' : '168px'}}> <Link className="LinkToText text-white" to="/"> E-Commerce </Link>
+        <h1 className = "bg-dark text-white pb-1 mb-0" style={{ paddingLeft: localStorage.getItem('user_name') ? '36px' : '168px'}}> <Link className="LinkToText text-white" to="/"> E-Commerce </Link>
         <span className = "col-6">
           { localStorage.getItem('user_name') ? <Drop/> : <Button onClick = {(e) => this.handleClick(e)}  color="outline-warning" style={{"display": "flex","flex-direction": "row-reverse","float": "right", "margin-top": "6px", "margin-right":"5px"}} >Get Register/Login</Button>}
         </span></h1>

@@ -23,14 +23,15 @@ const Example = (props) => {
     });
 
   }
-
+  let user = localStorage.getItem('user_name').slice(1,-1)
   return (
     <ButtonDropdown isOpen={dropdownOpen} toggle={toggle} style={{"display": "flex","flex-direction": "row-reverse","float": "right", "margin-top": "6px", "margin-right":"5px"}}>
       <DropdownToggle caret>        
         <i class="fas fa-user" ></i>
       </DropdownToggle>
       <DropdownMenu>
-          <DropdownItem onClick = {(e) => handleClick(e)}>Log out</DropdownItem>
+        <DropdownItem className="text-muted" disabled>{user}</DropdownItem>
+        <DropdownItem onClick = {(e) => handleClick(e)}>Log out</DropdownItem>
       </DropdownMenu>
     </ButtonDropdown>
   );

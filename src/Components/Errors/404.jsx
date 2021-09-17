@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Error404 from "../../Images/assets/404.png";
-import { Container, Button } from "reactstrap";
+import { Container } from "reactstrap";
 class Error_404 extends Component {
   constructor(props) {
     super(props);
@@ -12,10 +12,9 @@ class Error_404 extends Component {
       <>
         <Container
           fluid
-          className="vh-100 d-flex justify-content-center align-items-center flex-column"
+          className="d-flex align-items-center flex-column my-auto"
           style={{
             backgroundColor: "white",
-            height: "100%",
           }}
         >
           <img src={Error404} alt="" width="200px" />

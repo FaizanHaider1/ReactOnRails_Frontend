@@ -13,12 +13,20 @@ const ItemDetails = (props) => {
   } = props;
 
   const [modal, setModal] = useState(false);
+  const [isDescClicked, setIsDescClicked] = useState(true);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () =>{ 
+    setModal(!modal)
+    setIsDescClicked(true)
+  }
 
   const clickCartButton = (itemId, itemName) => {
     alert(`${itemName} is added in cart..!`)
   };
+
+  const descClickHandle = (e) =>{
+    setIsDescClicked(false)
+  }
 
   return (
     <>
@@ -27,13 +35,12 @@ const ItemDetails = (props) => {
         <ModalHeader toggle={toggle} /*charCode="Y"*/>{props.productName}</ModalHeader>
         <ModalBody>
         <CardImg top height="300px" style={{objectFit: "contain"}} src={`data:image/png;base64, ${productImage}`} alt="product image" />
-          <p className="mt-3 mb-0">This is {productName}</p>
-          
+          <p className="mt-3 mb-0" onClick={descClickHandle} style={{overflow: "hidden", textOverflow: "ellipsis", whiteSpace: isDescClicked ?'nowrap':'normal'}}>This is {productName}</p>
         </ModalBody>
         <ModalFooter>
           <span className="row m-auto py-1">
-              <p className="col-5">Price: {productPrice} Rs</p>
-              <p className="col ">Available qty: {productQty}</p>
+              <p className="col-6 text-center">Price: {productPrice} Rs</p>
+              <p className="col-6 text-center">Available qty: {productQty}</p>
               <Button id={`add_to_cart_${productId}`} color="outline-success" onClick = {(e) => clickCartButton(productId, productName)}><i class="fas fa-cart-plus"></i></Button>
               <UncontrolledTooltip placement="bottom" target={`add_to_cart_${productId}`}>Add to cart</UncontrolledTooltip>
           </span>

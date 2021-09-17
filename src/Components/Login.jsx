@@ -6,7 +6,7 @@ import axios from 'axios';
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { sessionUser: null }
+        this.state = { sessionUser: null, showPassword: false }
     }
     render() {
         return (
@@ -18,11 +18,14 @@ class Login extends Component {
                             <Label style={{display: "flex"}}>Username</Label>
                             <Input type="email" name="email" id="exampleEmail" placeholder="example@example.com" required/>
                         </FormGroup>
-                        <FormGroup className="mb-2 mt-2">
+                        <FormGroup className="mb-2 mt-2 ">
                             <Label style={{display: "flex"}}>Password</Label>
-                            <Input type="password" name="password" id="examplePassword" placeholder="********" required/>
+                            <div style={{position:"inherit"}}>
+                                <Input type={this.state.showPassword ? "text" : "password"} name="password" id="examplePassword" placeholder="********" style={{position:"absolute", width:"inherit"}} required/>
+                                <i className="fas fa-eye-slash float-end" onClick={(e) => this.handelShowPassword(e)} style={{position:"relative", top:"10px", right:"5px"}}></i>
+                            </div>
                         </FormGroup>
-                        <Button type="submit" color = "primary" className = "mt-2">Login</Button>
+                        <Button type="submit" color = "primary" className = "mt-2" style={{position: "relative", bottom: "-40px"}}>Login</Button>
                     </Form>
                 </Card>
             </>
@@ -51,6 +54,19 @@ class Login extends Component {
         }).catch(function(err){
             alert(err.message)
         });
+    };
+
+    handelShowPassword = (e)=>{
+        if(this.state.showPassword){
+            this.setState({ showPassword: false });
+            e.target.classList.remove("fa-eye-slash")
+            e.target.classList.add("fa-eye")
+        }
+        else{
+            this.setState({ showPassword: true });
+            e.target.classList.remove("fa-eye")
+            e.target.classList.add("fa-eye-slash")
+        }
     };
 }
  
